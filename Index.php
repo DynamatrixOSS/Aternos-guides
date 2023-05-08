@@ -25,9 +25,9 @@ require_once('src/models/functions.php')
                     <span>We are not an official site, and we are not affiliated with Aternos, Aternos GmbH, exaroton and it's associates and employees.</span>
                 </div>
             </div>
-            <p>Welcome to Aternos Guides, an article site ran by Aternos regulars and an Aternos moderator. Here you may find all kinds of articles about topics and issues that are not covered in Aternos' help center itself. Have an issue that you don't know the fix to? Try our articles below, in the articles page or join the Aternos discord for help.</p>
+            <p><b>Welcome to Aternos Guides</b><br> an article site ran by Aternos regulars and an Aternos moderator. Here you may find all kinds of articles about topics and issues that are not covered in Aternos' help center itself. Have an issue that you don't know the fix to? Try our articles below, in the articles page or join the Aternos discord for help.</p>
 
-            <a href="about.php"><button class="btn btn-primary">About Us</button></a>
+            <a href="About.php"><button class="btn btn-primary">About Us</button></a>
             <a href="articles.php"><button class="btn btn-outline-primary">Articles</button></a>
             <hr>
         </div>
