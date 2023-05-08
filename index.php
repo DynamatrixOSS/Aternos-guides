@@ -33,7 +33,7 @@ require_once('src/models/functions.php')
         </div>
 
         <div class="container pt-5">
-            <div class="float-start" style="margin-left: 25%">
+            <div class="float-start m25">
                 <h2>Popular articles</h2>
                 <ul class="hidden">
                     <li>Example article 1</li>
@@ -42,7 +42,7 @@ require_once('src/models/functions.php')
                 </ul>
             </div>
 
-            <div class="float-end" style="margin-right: 25%">
+            <div class="float-end m25">
                 <h2>Pinned articles</h2>
                 <ul class="hidden">
                     <li>Example article 1</li>
