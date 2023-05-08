@@ -20,13 +20,8 @@
                 </form>
 
                 <div class="text-end">
-                    <a href="login.php">
-                        <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    </a>
-
-                    <a href="register.php">
-                        <button type="button" class="btn btn-warning">Sign-up</button>
-                    </a>
+                    <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                    <a href="register.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
                 </div>
             </div>
         </div>
