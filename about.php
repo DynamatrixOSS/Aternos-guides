@@ -18,7 +18,7 @@ require_once('src/models/functions.php')
 
     <body>
     <div class="card" style="width: 18rem;">
-        <img src="" class="card-img-top" alt="...">
+        <img src="<?php echo getUser("Dobbie", false) ?>" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">name</p>
