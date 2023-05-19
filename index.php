@@ -55,11 +55,11 @@ require_once('src/models/functions.php')
                 <h2>Pinned articles</h2>
                 <ul class="hidden">
                     <?php
-                    #include "src/models/classes/Article.php";
-                    $article = new Article();
-                    $article->title = "Why Matthias is amazing";
-                    $article->summary = "Because he helps amazingly";
-                    $article->save();
+                    $articleQueryResult = Article::select(limit: 5);
+                    foreach($articleQueryResult as $user) {
+                        /** @var Article $user */
+                        echo '<li> <a href="article/' .$user->ID. '-'.str_replace(" ", "-", $user->title).'">'.$user->title.'</a></li>';
+                    }
                     ?>
                 </ul>
             </div>
