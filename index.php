@@ -39,9 +39,15 @@ require_once('src/models/functions.php')
             <div class="float-start" style="margin-left: 25%">
                 <h2>Popular articles</h2>
                 <ul class="hidden">
-                    <li>Example article 1</li>
-                    <li>Example article 2</li>
-                    <li>Example article 3</li>
+                    <?php
+                    include "src/models/classes/Article.php";
+                    $article = new Article();
+                    $articleQueryResult = Article::select(order: ["views" => Aternos\Model\Query\OrderField::DESCENDING], limit: 5);
+                    foreach($articleQueryResult as $user) {
+                        /** @var Article $user */
+                        echo '<li> <a href="article/' .$user->ID. '-'.str_replace(" ", "-", $user->title).'">'.$user->title.'</a></li>';
+                    }
+                    ?>
                 </ul>
             </div>
 
