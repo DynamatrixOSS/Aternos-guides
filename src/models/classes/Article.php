@@ -12,4 +12,5 @@ class Article extends \Aternos\Model\GenericModel
     public $ID;
     public $title;
     public $summary;
+    public $views;
 }
