@@ -1,5 +1,9 @@
 {
     "require": {
         "aternos/model": "^3.0"
+    },
+
+    "autoload": {
+        "psr-4": {"\\": "src/models/classes/"}
     }
 }
