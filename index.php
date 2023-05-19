@@ -2,7 +2,15 @@
 
 <?php
 require_once 'vendor/autoload.php';
-$driver = new \Aternos\Model\Driver\Mysqli\Mysqli("localhost", 3306, "aterguides", "password", "", "aterguides");
+
+$env = parse_ini_file('.env');
+
+$host = $env['HOST'];
+$user = $env['USER'];
+$password = $env['PASSWORD'];
+$database = $env['DATABASE'];
+
+$driver = new \Aternos\Model\Driver\Mysqli\Mysqli($host, 3306, $user, $password, "", $database);
 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
 require_once('src/models/functions.php')
 ?>
