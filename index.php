@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 
 <?php
+require_once 'vendor/autoload.php';
+$driver = new \Aternos\Model\Driver\Mysqli\Mysqli("localhost", 3306, "aterguides", "password", "", "aterguides");
+\Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
 require_once('src/models/functions.php')
 ?>
 
@@ -45,9 +48,13 @@ require_once('src/models/functions.php')
             <div class="float-end m25">
                 <h2>Pinned articles</h2>
                 <ul class="hidden">
-                    <li>Example article 1</li>
-                    <li>Example article 2</li>
-                    <li>Example article 3</li>
+                    <?php
+                    #include "src/models/classes/Article.php";
+                    $article = new Article();
+                    $article->title = "Why Matthias is amazing";
+                    $article->summary = "Because he helps amazingly";
+                    $article->save();
+                    ?>
                 </ul>
             </div>
         </div>

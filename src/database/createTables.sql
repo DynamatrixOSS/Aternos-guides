@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS authentication (
 
 CREATE TABLE IF NOT EXISTS articles (
     ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR,
+    title VARCHAR(260),
     summary VARCHAR(260)
-    # add text, not clear which property to assign yet
-)
+);

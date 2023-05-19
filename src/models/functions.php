@@ -15,3 +15,20 @@ function getConditionalClass(string $currentPage, string $intendedPage,string $c
         return $classNegative;
     }
 }
+
+function dbCommand(string $query, array $parameters) : mixed {
+    $env = parse_ini_file('.env');
+
+    $user = $env['USER'];
+    $password = $env['PASSWORD'];
+
+    $conn = new PDO('mysql:host=localhost;dbname=aterguides', $user, $password);
+
+    try {
+        $stmt = $conn->prepare($query);
+        $stmt->execute($parameters);
+        return $stmt->fetch();
+    } catch (PDOException $error) {
+        return [$error->getCode(), $error];
+    }
+}
