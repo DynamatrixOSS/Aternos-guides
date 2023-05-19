@@ -98,3 +98,5 @@ function getUser(string $user, bool $name) {
     }
     return $returned;
 }
+
+<?php echo getUser("Dobbie", false) ?>
