@@ -43,6 +43,9 @@ require_once('src/models/functions.php')
                     include "src/models/classes/Article.php";
                     $article = new Article();
                     $articleQueryResult = Article::select(order: ["views" => Aternos\Model\Query\OrderField::DESCENDING], limit: 5);
+                    if (count($articleQueryResult) === 0) {
+                        echo 'No articles found';
+                    }
                     foreach($articleQueryResult as $user) {
                         /** @var Article $user */
                         echo '<li> <a href="article/' .$user->ID. '-'.str_replace(" ", "-", $user->title).'">'.$user->title.'</a></li>';
@@ -56,6 +59,9 @@ require_once('src/models/functions.php')
                 <ul class="hidden">
                     <?php
                     $articleQueryResult = Article::select(limit: 5);
+                    if (count($articleQueryResult) === 0) {
+                        echo 'No articles found';
+                    }
                     foreach($articleQueryResult as $user) {
                         /** @var Article $user */
                         echo '<li> <a href="article/' .$user->ID. '-'.str_replace(" ", "-", $user->title).'">'.$user->title.'</a></li>';
