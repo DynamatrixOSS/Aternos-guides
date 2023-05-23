@@ -12,7 +12,6 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
 
 include "../models/classes/User.php";
-$user = new User();
 
 $mailQueryResult = User::select(["mail" => $mail]);
 
