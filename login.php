@@ -16,7 +16,6 @@
         <form action="/src/validation/loginValidation.php" method="post">
             <div class=" top row align-items-start">
                 <div class="col">
-
                 </div>
                 <div class="col">
                     <div class="row align-items-start">
@@ -44,13 +43,10 @@
                             <div class="top">
                                 <span class="psw top"><a href="register.php">Don't have an account?</a></span>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
                 <div class="col">
-
                 </div>
             </div>
                 <?php
