@@ -19,17 +19,30 @@ require_once('src/models/functions.php')
     <?php include_once 'src/models/navbar.php' ?>
 
     <body>
-    <div>
-        <div class="card img-card" style="width: 18rem;">
-            <img  src="https://cdn.discordapp.com/avatars/820255805257023498/74d5106b0e3be86c8abcd3e6dbbfd34e.webp?size=4096" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title text-center">Dobbie</h5>
-                <p class="card-text">a devolper</p>
+        <div class="card-group">
+            <div class="card">
+                <img class="img" src="https://cdn.discordapp.com/avatars/820255805257023498/74d5106b0e3be86c8abcd3e6dbbfd34e.webp?size=4096" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                </div>
             </div>
-        </div>
-    </div>
+            <div class="card">
+                <img class="img" src="https://cdn.discordapp.com/avatars/820255805257023498/74d5106b0e3be86c8abcd3e6dbbfd34e.webp?size=4096" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Card title</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="img" src="https://cdn.discordapp.com/avatars/820255805257023498/74d5106b0e3be86c8abcd3e6dbbfd34e.webp?size=4096" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5class="card-title text-center" >Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                </div>
+            </div>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     </body>
 </html>
