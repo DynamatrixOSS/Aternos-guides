@@ -16,19 +16,13 @@ function getConditionalClass(string $currentPage, string $intendedPage,string $c
     }
 }
 
-function dbCommand(string $query, array $parameters) : mixed {
-    $env = parse_ini_file('.env');
+function databaseCredentials(): array {
+    $env = parse_ini_file('../../.env');
 
+    $host = $env['HOST'];
     $user = $env['USER'];
     $password = $env['PASSWORD'];
+    $database = $env['DATABASE'];
 
-    $conn = new PDO('mysql:host=localhost;dbname=aterguides', $user, $password);
-
-    try {
-        $stmt = $conn->prepare($query);
-        $stmt->execute($parameters);
-        return $stmt->fetch();
-    } catch (PDOException $error) {
-        return [$error->getCode(), $error];
-    }
+    return ["host" => $host, "user" => $user, "password" => $password, "database" => $database];
 }
