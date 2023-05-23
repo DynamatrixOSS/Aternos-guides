@@ -9,6 +9,8 @@ class Article extends \Aternos\Model\GenericModel
     }
 
     // all public properties are database fields
+    public $ID;
     public $title;
     public $summary;
+    public $views;
 }

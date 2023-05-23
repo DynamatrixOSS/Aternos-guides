@@ -2,9 +2,13 @@
 
 <?php
 require_once 'vendor/autoload.php';
-$driver = new \Aternos\Model\Driver\Mysqli\Mysqli("localhost", 3306, "aterguides", "password", "", "aterguides");
+
+require_once('src/models/functions.php');
+
+$dbCreds = databaseCredentials();
+
+$driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCreds['user'], $dbCreds['password'], "", $dbCreds['database']);
 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
-require_once('src/models/functions.php')
 ?>
 
 <html lang="en">
@@ -39,9 +43,18 @@ require_once('src/models/functions.php')
             <div class="float-start m25">
                 <h2>Popular articles</h2>
                 <ul class="hidden">
-                    <li>Example article 1</li>
-                    <li>Example article 2</li>
-                    <li>Example article 3</li>
+                    <?php
+                    include "src/models/classes/Article.php";
+                    $article = new Article();
+                    $articleQueryResult = Article::select(order: ["views" => Aternos\Model\Query\OrderField::DESCENDING], limit: 5);
+                    if (count($articleQueryResult) === 0) {
+                        echo 'No articles found';
+                    }
+                    foreach($articleQueryResult as $user) {
+                        /** @var Article $user */
+                        echo '<li> <a href="article/' .$user->ID. '-'.str_replace(" ", "-", $user->title).'">'.$user->title.'</a></li>';
+                    }
+                    ?>
                 </ul>
             </div>
 
@@ -49,11 +62,14 @@ require_once('src/models/functions.php')
                 <h2>Pinned articles</h2>
                 <ul class="hidden">
                     <?php
-                    #include "src/models/classes/Article.php";
-                    $article = new Article();
-                    $article->title = "Why Matthias is amazing";
-                    $article->summary = "Because he helps amazingly";
-                    $article->save();
+                    $articleQueryResult = Article::select(limit: 5);
+                    if (count($articleQueryResult) === 0) {
+                        echo 'No articles found';
+                    }
+                    foreach($articleQueryResult as $user) {
+                        /** @var Article $user */
+                        echo '<li> <a href="article/' .$user->ID. '-'.str_replace(" ", "-", $user->title).'">'.$user->title.'</a></li>';
+                    }
                     ?>
                 </ul>
             </div>
