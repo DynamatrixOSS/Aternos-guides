@@ -17,6 +17,7 @@
             <div class=" top row align-items-start">
                 <div class="col">
                 </div>
+
                 <div class="col">
                     <div class="row align-items-start">
                         <div class="col">
@@ -27,6 +28,7 @@
                             <img class="float-end img" src="src/img/Atomic.png" alt="Blue Atomic">
                             </div>
                         </div>
+
                         <div class="col">
                             <div class="e-mail ">
                                 <label for="user"><b>E-mail address</b></label>
@@ -46,8 +48,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                </div>
+
+                <div class="col"></div>
             </div>
                 <?php
                 session_start();
