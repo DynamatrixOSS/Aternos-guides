@@ -3,13 +3,12 @@
 <?php
 require_once 'vendor/autoload.php';
 
-$env = parse_ini_file('.env');
+require_once('src/models/functions.php');
 
 $dbCreds = databaseCredentials();
 
 $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCreds['user'], $dbCreds['password'], "", $dbCreds['database']);
 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
-require_once('src/models/functions.php')
 ?>
 
 <html lang="en">
