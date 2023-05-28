@@ -27,7 +27,9 @@ session_start();
 if ($passwordAuthenticity) {
     $_SESSION['authenticated'] = $mailQueryResult[0]->id;
     header('Location: ../../index.php');
+    return;
 } else {
     $_SESSION['exCode'] = 'Incorrect password.';
     header("Location: ../../login.php");
+    return;
 }
