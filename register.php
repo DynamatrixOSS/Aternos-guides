@@ -27,8 +27,6 @@
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
         <?php
-        session_start();
-
         if (isset($_SESSION['exCode'])) {
             if ($_SESSION['exCode'] == 404) {
                 echo "<p style='color: red;'>Unknown mail address.</p>";
