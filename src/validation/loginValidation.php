@@ -21,11 +21,11 @@ if (count($mailQueryResult) === 0) {
     header("Location: ../../login.php");
 }
 
-$passwordAuthenticity = password_verify($_POST['psw'], $mailQueryResult['password']);
+$passwordAuthenticity = password_verify($_POST['psw'], $mailQueryResult[0]->password);
 
 session_start();
 if ($passwordAuthenticity) {
-    $_SESSION['authenticated'] = $mailQueryResult['UID'];
+    $_SESSION['authenticated'] = $mailQueryResult[0]->id;
     header('Location: ../../index.php');
 } else {
     $_SESSION['exCode'] = 'Incorrect password.';
