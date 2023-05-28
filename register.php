@@ -28,13 +28,9 @@
         <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
         <?php
         if (isset($_SESSION['exCode'])) {
-            if ($_SESSION['exCode'] == 404) {
-                echo "<p style='color: red;'>Unknown mail address.</p>";
-            } elseif ($_SESSION['exCode'] == 403) {
-                echo "<p style='color: red'>Wrong password</p>" ;
-            }
+            echo '<p class="text-warning">' . $_SESSION['exCode'] . '<br>';
         }
-        session_destroy();
+        session_destroy()
         ?>
         <button type="submit" name="login">Login</button>
     </div>
