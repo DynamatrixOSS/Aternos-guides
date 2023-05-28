@@ -29,8 +29,14 @@
                 </form>
 
                 <div class="text-end">
-                    <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-                    <a href="register.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                    <?php
+                    session_start(); if (!isset($_SESSION['authenticated'])) :?>
+                        <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                        <a href="register.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                    <?php else:?>
+                        <?php include "classes/User.php"; $userQuery = User::select(["id" => $_SESSION['authenticated']]);?>
+                        <p><?php echo $userQuery[0]->username ?></p>
+                    <?php endif;?>
                 </div>
             </div>
         </div>
