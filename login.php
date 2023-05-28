@@ -25,7 +25,7 @@
                 if (isset($_SESSION['exCode'])) {
                     echo '<p class="text-warning">' . $_SESSION['exCode'] . '<br>';
                 }
-                session_destroy();
+                session_destroy()
                 ?>
                 <button type="submit" name="login">Login</button>
             </div>
