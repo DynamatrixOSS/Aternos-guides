@@ -15,7 +15,22 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
 include "../models/classes/User.php";
 $user = new User();
 
-$mailQueryResult = User::select(["mail" => $mail]);
+$usernameQuery = User::select(["username" => $_POST['username']]);
+$mailQuery = User::select(["mail" => $mail]);
+
+if (count($usernameQuery) !== 0) {
+    session_start();
+    $_SESSION['exCode'] = 'Username already exists.';
+    header("Location: ../../register.php");
+    exit();
+}
+
+if (count($mailQuery) !== 0) {
+    session_start();
+    $_SESSION['exCode'] = 'Mail already exists.';
+    header("Location: ../../register.php");
+    exit();
+}
 
 $user->username = $_POST['username'];
 $user->mail = $mail;
