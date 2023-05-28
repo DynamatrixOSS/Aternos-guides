@@ -39,5 +39,6 @@ $user->roleID = 0;
 $user->save();
 
 session_start();
-$_SESSION['authenticated'] = $mailQueryResult['UID'];
+$_SESSION['authenticated'] = $user->id;
 header('Location: ../../index.php');
+return;
