@@ -17,7 +17,7 @@ $mailQueryResult = User::select(["mail" => $mail]);
 
 if (count($mailQueryResult) === 0) {
     session_start();
-    $_SESSION['exCode'] = 404;
+    $_SESSION['exCode'] = "Mail not found.";
     header("Location: ../../login.php");
 }
 
@@ -28,6 +28,6 @@ if ($passwordAuthenticity) {
     $_SESSION['authenticated'] = $mailQueryResult['UID'];
     header('Location: ../../index.php');
 } else {
-    $_SESSION['exCode'] = 403;
+    $_SESSION['exCode'] = 'Incorrect password.';
     header("Location: ../../login.php");
 }
