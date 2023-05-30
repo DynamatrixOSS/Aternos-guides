@@ -15,41 +15,45 @@
     <body>
         <form action="/src/validation/loginValidation.php" method="post">
             <div class=" top row align-items-start">
+                <div class="col"></div>
                 <div class="col">
-                </div>
+                    <div class="row">
 
-                <div class="col">
-                    <div class="row align-items-start">
-                        <div class="col">
-                            <div>
-                            <img class="float-end img" src="src/img/Aternos_logo.svg" alt="Aternos Logo" >
+
+                        <div class="col shadow">
+                            <div class="row ">
+
+                                <div class="col top">
+                                    <div class="">
+                                        <img class="float-start img" src="src/img/Aternos_logo.svg" alt="Aternos Logo" >
+                                    </div>
+                                    <div class="">
+                                        <img class="float-end img" src="src/img/Atomic.png" alt="Blue Atomic">
+                                    </div>
+                                </div>
                             </div>
                             <div class="top">
-                            <img class="float-end img" src="src/img/Atomic.png" alt="Blue Atomic">
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="e-mail ">
-                                <label for="user"><b>E-mail address</b></label>
-                                <input class="form-control" type="email" placeholder="example@gmail.com" name="mail" id="user" required>
-                            </div>
-                            <div class="password top">
-                                <label for="psw"><b>Password</b></label>
-                                <input class="form-control" type="password" placeholder="Enter Password" name="psw" id="psw" required>
-                            </div>
-                            <div class="top  ">
-                                <button class="btn btn-primary" type="submit" name="login">Login</button>
-                                <button class="btn btn-primary" type="button" class="cancelbtn" onclick="history.back()">Cancel</button>
-                            </div>
-                            <div class="top">
-                                <span class="psw top"><a href="register.php">Don't have an account?</a></span>
+                                <div class="e-mail ">
+                                    <label for="user"><b>E-mail address</b></label>
+                                    <input class="form-control" type="email" placeholder="example@gmail.com" name="mail" id="user" required>
+                                </div>
+                                <div class="password top">
+                                    <label for="psw"><b>Password</b></label>
+                                    <input class="form-control" type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                                </div>
+                                <div class="top  ">
+                                    <button class="btn btn-primary" type="submit" name="login">Login</button>
+                                    <button class="btn btn-primary" type="button" class="cancelbtn" onclick="history.back()">Cancel</button>
+                                </div>
+                                <div class="top">
+                                    <span class="psw top"><a href="register.php">Don't have an account?</a></span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col"></div>
+                <div class="col"></div> <!--right space--!>
             </div>
                 <?php
                 session_start();
