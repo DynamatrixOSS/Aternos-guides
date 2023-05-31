@@ -31,6 +31,7 @@ session_abort();
         <script src="https://kit.fontawesome.com/d1393c407a.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <link rel="stylesheet" href="src/styling/main.css">
+        <link rel="stylesheet" href="src/styling/articleWriter.css">
     </head>
 
     <?php include_once 'src/models/navbar.php' ?>
