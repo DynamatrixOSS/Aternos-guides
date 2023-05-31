@@ -47,6 +47,12 @@
                 <button class="btn btn-primary" type="button" class="cancelbtn" onclick="history.back()">Cancel</button>
 
             </div>
+            <?php
+            if (isset($_SESSION['exCode'])) {
+                echo '<p class="text-warning">' . $_SESSION['exCode'] . '<br>';
+            }
+            session_destroy()
+            ?>
             <div>
                 <span class="psw"><a href="register.php">Already have an account?</a></span>
             </div>
