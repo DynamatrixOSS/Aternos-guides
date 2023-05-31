@@ -35,7 +35,8 @@
                         <a href="register.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
                     <?php else:?>
                         <?php include "classes/User.php"; $userQuery = User::select(["id" => $_SESSION['authenticated']]);?>
-                        <p><?php echo $userQuery[0]->username ?></p>
+                        <a href="profile.php"><button type="button" class="btn btn-outline-light me-2"><?php echo $userQuery[0]->username ?></button> </a>
+                        <a href="logout.php"><button type="button" class="btn btn-warning">Log out</button></a>
                     <?php endif;?>
                 </div>
             </div>
