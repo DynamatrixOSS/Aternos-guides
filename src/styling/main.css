@@ -1,3 +1,13 @@
 .hidden {
     list-style-type: none;
 }
+.m25{
+    margin-left: 25%
+}
+.img{
+    display: block;
+    width: 275px; height: 275px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto;
+}
