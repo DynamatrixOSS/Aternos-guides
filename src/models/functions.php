@@ -16,8 +16,8 @@ function getConditionalClass(string $currentPage, string $intendedPage,string $c
     }
 }
 
-function databaseCredentials(): array {
-    $env = parse_ini_file('../../.env');
+function databaseCredentials(string $pathToEnv): array {
+    $env = parse_ini_file($pathToEnv);
 
     $host = $env['HOST'];
     $user = $env['USER'];

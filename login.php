@@ -56,16 +56,10 @@
                 <div class="col"></div> <!--right space--!>
             </div>
                 <?php
-                session_start();
-
                 if (isset($_SESSION['exCode'])) {
-                    if ($_SESSION['exCode'] == 404) {
-                        echo "<p style='color: red;'>Unknown mail address.</p>";
-                    } elseif ($_SESSION['exCode'] == 403) {
-                        echo "<p style='color: red'>Wrong password</p>" ;
-                    }
+                    echo '<p class="text-warning">' . $_SESSION['exCode'] . '<br>';
                 }
-                session_destroy();
+                session_destroy()
                 ?>
         </form>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

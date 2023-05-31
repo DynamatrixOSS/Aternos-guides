@@ -6,7 +6,7 @@ require_once '../../vendor/autoload.php';
 
 require_once('../models/functions.php');
 
-$dbCreds = databaseCredentials();
+$dbCreds = databaseCredentials('../../.env');
 
 $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCreds['user'], $dbCreds['password'], "", $dbCreds['database']);
 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
@@ -17,17 +17,19 @@ $mailQueryResult = User::select(["mail" => $mail]);
 
 if (count($mailQueryResult) === 0) {
     session_start();
-    $_SESSION['exCode'] = 404;
+    $_SESSION['exCode'] = "Mail not found.";
     header("Location: ../../login.php");
 }
 
-$passwordAuthenticity = password_verify($_POST['psw'], $mailQueryResult['password']);
+$passwordAuthenticity = password_verify($_POST['psw'], $mailQueryResult[0]->password);
 
 session_start();
 if ($passwordAuthenticity) {
-    $_SESSION['authenticated'] = $mailQueryResult['UID'];
+    $_SESSION['authenticated'] = $mailQueryResult[0]->id;
     header('Location: ../../index.php');
+    return;
 } else {
-    $_SESSION['exCode'] = 403;
+    $_SESSION['exCode'] = 'Incorrect password.';
     header("Location: ../../login.php");
+    return;
 }
