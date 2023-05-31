@@ -1,6 +1,8 @@
 <?php
 
-class User extends \Aternos\Model\GenericModel
+use Aternos\Model\GenericModel;
+
+class User extends GenericModel
 {
     // the name of your model (and table)
     public static function getName() : string
