@@ -42,18 +42,6 @@
                 <label for="psw"><b>Password</b></label>
                 <input class="form-control" type="password" placeholder="Enter Password" name="psw" id="psw" required>
             </div>
-            <?php
-            session_start();
-
-            if (isset($_SESSION['exCode'])) {
-                if ($_SESSION['exCode'] == 404) {
-                    echo "<p style='color: red;'>Unknown mail address.</p>";
-                } elseif ($_SESSION['exCode'] == 403) {
-                    echo "<p style='color: red'>Wrong password</p>" ;
-                }
-            }
-            session_destroy();
-            ?>
             <div class="top">
                 <button class="btn btn-primary" type="submit" name="login">Login</button>
                 <button class="btn btn-primary" type="button" class="cancelbtn" onclick="history.back()">Cancel</button>
