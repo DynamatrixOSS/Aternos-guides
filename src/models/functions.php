@@ -8,14 +8,6 @@ function getPageName(string $page): string {
     }
 }
 
-function getConditionalClass(string $currentPage, string $intendedPage,string $classPositive, string $classNegative): string {
-    if (getPageName($currentPage) === $intendedPage) {
-        return $classPositive;
-    } else {
-        return $classNegative;
-    }
-}
-
 function databaseCredentials(string $pathToEnv): array {
     $env = parse_ini_file($pathToEnv);
 
