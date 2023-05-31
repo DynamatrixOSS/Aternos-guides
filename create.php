@@ -35,5 +35,33 @@ session_abort();
     </head>
 
     <?php include_once 'src/models/navbar.php' ?>
+
+    <body>
+        <div class="container">
+            <h1>Article writer</h1>
+            <form action="src/validation/articleCreate.php" type="POST" style="float: left">
+                <label for="title" class="h3">Title</label> <br>
+                <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required></textarea> <br>
+
+                <label for="summary" class="h3">Summary</label> <br>
+                <textarea name="summary" id="summary" placeholder="Because Aternos is free..." required></textarea> <br>
+
+                <label for="content" class="h3">Content</label> <br>
+                <textarea name="content" id="content" placeholder="Its amazing because..." required></textarea> <br>
+
+                <button type="submit">Submit</button>
+            </form>
+            <div style="float: right; padding-right: 25%">
+                <h2>Remember:</h2>
+                <ul>
+                    <li>Keep it civil</li>
+                    <li>Use proper grammar</li>
+                    <li>No other hosts</li>
+                    <li>Only facts</li>
+                </ul>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    </body>
 </html>
 
