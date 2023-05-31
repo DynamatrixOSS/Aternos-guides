@@ -6,7 +6,16 @@
                     <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
                 </a>
 
-                <?php require_once 'functions.php'?>
+                <?php
+                require_once 'vendor/autoload.php';
+
+                require_once('src/models/functions.php');
+
+                $dbCreds = databaseCredentials('.env');
+
+                $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCreds['user'], $dbCreds['password'], "", $dbCreds['database']);
+                \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
+                ?>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="../../index.php" class="nav-link px-2 <?php echo getConditionalClass(basename($_SERVER['PHP_SELF']), 'home', 'text-secondary', 'text-white');?>">Home</a></li>
@@ -20,8 +29,14 @@
                 </form>
 
                 <div class="text-end">
-                    <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-                    <a href="register.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                    <?php
+                    session_start(); if (!isset($_SESSION['authenticated'])) :?>
+                        <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                        <a href="register.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                    <?php else:?>
+                        <?php include "classes/User.php"; $userQuery = User::select(["id" => $_SESSION['authenticated']]);?>
+                        <p><?php echo $userQuery[0]->username ?></p>
+                    <?php endif;?>
                 </div>
             </div>
         </div>

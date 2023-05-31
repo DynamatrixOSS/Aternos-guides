@@ -9,9 +9,9 @@ class User extends \Aternos\Model\GenericModel
     }
 
     // all public properties are database fields
-    public $UID;
-    public $username;
-    public $mail;
-    public $password;
-    public $roleID;
+    public mixed $id;
+    public string $username;
+    public string $mail;
+    public string $password;
+    public int $roleID;
 }

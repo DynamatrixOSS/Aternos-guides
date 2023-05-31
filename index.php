@@ -5,7 +5,7 @@ require_once 'vendor/autoload.php';
 
 require_once('src/models/functions.php');
 
-$dbCreds = databaseCredentials();
+$dbCreds = databaseCredentials('.env');
 
 $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCreds['user'], $dbCreds['password'], "", $dbCreds['database']);
 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);

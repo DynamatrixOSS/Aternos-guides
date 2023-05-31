@@ -14,6 +14,7 @@
 
 <body>
 <form action="/src/validation/registrationValidation.php" method="post">
+
     <div class="top row align-items-start">
         <div class="col"><!--1/3 empty--!> </div>
         <div class="col shadow">
