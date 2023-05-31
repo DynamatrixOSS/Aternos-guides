@@ -37,7 +37,7 @@
                         <?php include "classes/User.php"; $userQuery = User::select(["id" => $_SESSION['authenticated']]);?>
                         <a href="profile.php"><button type="button" class="btn btn-outline-light me-2"><?php echo $userQuery[0]->username ?></button> </a>
                         <a href="logout.php"><button type="button" class="btn btn-warning">Log out</button></a>
-                    <?php endif;?>
+                    <?php session_abort(); endif;?>
                 </div>
             </div>
         </div>

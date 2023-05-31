@@ -1,3 +1,26 @@
+<?php
+require_once 'vendor/autoload.php';
+
+require_once('src/models/functions.php');
+
+$dbCreds = databaseCredentials('.env');
+
+$driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCreds['user'], $dbCreds['password'], "", $dbCreds['database']);
+\Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
+
+include "src/models/classes/User.php";
+
+session_start();
+$userQuery = User::select(["id" => $_SESSION['authenticated']]);
+
+if (!isset($_SESSION['authenticated'])) {
+    header("Location: codes/403.php");
+} else if (!$userQuery > 0) {
+    header("Location: codes/403.php");
+}
+session_abort();
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -13,4 +36,3 @@
     <?php include_once 'src/models/navbar.php' ?>
 </html>
 
-<h1>This should only work with permission integer 1</h1>
