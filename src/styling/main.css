@@ -1,8 +1,11 @@
 .hidden {
     list-style-type: none;
 }
-.m25{
+.m25L{
     margin-left: 25%
+}
+.m25R{
+    margin-right: 25%;
 }
 .img{
     display: block;
