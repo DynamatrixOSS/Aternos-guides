@@ -40,7 +40,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
         </div>
 
         <div class="container pt-5">
-            <div class="float-start m25">
+            <div class="float-start m25L">
                 <h2>Popular articles</h2>
                 <ul class="hidden">
                     <?php
@@ -58,7 +58,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
                 </ul>
             </div>
 
-            <div class="float-end m25">
+            <div class="float-end m25R">
                 <h2>Pinned articles</h2>
                 <ul class="hidden">
                     <?php
