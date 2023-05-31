@@ -15,6 +15,8 @@
 
                 $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCreds['user'], $dbCreds['password'], "", $dbCreds['database']);
                 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
+
+                require_once "classes/User.php";
                 ?>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -34,10 +36,10 @@
                         <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
                         <a href="register.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
                     <?php else:?>
-                        <?php include "classes/User.php"; $userQuery = User::select(["id" => $_SESSION['authenticated']]);?>
-                        <a href="profile.php"><button type="button" class="btn btn-outline-light me-2"><?php echo $userQuery[0]->username ?></button> </a>
+                        <?php $userQuery = User::select(["id" => $_SESSION['authenticated']]);?>
+                        <a href="profile.php"><button type="button" class="btn btn-outline-light me-2"><?php echo $userQuery[0]->username ?></button></a>
                         <a href="logout.php"><button type="button" class="btn btn-warning">Log out</button></a>
-                    <?php session_abort(); endif;?>
+                        <?php session_abort(); endif;?>
                 </div>
             </div>
         </div>
