@@ -42,11 +42,19 @@
                 <label for="psw"><b>Password</b></label>
                 <input class="form-control" type="password" placeholder="Enter Password" name="psw" id="psw" required>
             </div>
+            <?php
+            if (isset($_SESSION['exCode'])) {
+                echo '<p class="text-warning">' . $_SESSION['exCode'] . '<br>';
+            }
+            session_destroy()
+            ?>
             <div class="top">
                 <button class="btn btn-primary" type="submit" name="login">Login</button>
                 <button class="btn btn-primary" type="button" class="cancelbtn" onclick="history.back()">Cancel</button>
 
             </div>
+
+
             <div>
                 <span class="psw"><a href="register.php">Already have an account?</a></span>
             </div>
