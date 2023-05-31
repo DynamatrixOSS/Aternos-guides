@@ -1,3 +1,14 @@
 input, label {
     display:block;
 }
+.img{
+    width: 150px;
+    height: 150px;
+}
+.top{
+    padding-top: 5%;
+}
+.text{
+    padding-left: 30%;
+    padding-right: 30%;
+}
