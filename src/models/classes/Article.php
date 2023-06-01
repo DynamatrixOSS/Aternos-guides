@@ -14,5 +14,6 @@ class Article extends GenericModel
     public mixed $ID;
     public string $title;
     public string $summary;
+    public string $content;
     public int $views;
 }
