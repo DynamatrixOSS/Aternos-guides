@@ -23,11 +23,13 @@ textarea {
     border-radius: 10px;
     background-color: rgba(43, 135, 211, 0.1);
 }
-
-button {
-    padding: 10px 20px;
-    background-color: rgba(43, 135, 211, 50);
-    border-color: #2B87D3;
-    border-radius: 10px;
-    color: white;
+.space{
+    padding-top: 7%;
+}
+.line{
+    float: right;
+    padding-right: 25%
+}
+.left{
+    float: left
 }
