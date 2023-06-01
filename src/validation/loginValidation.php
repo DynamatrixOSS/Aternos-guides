@@ -2,7 +2,7 @@
 
 $mail = filter_var($_POST['mail'], FILTER_SANITIZE_EMAIL);
 
-require_once '../../vendor/autoload.php';
+require_once ('../../vendor/autoload.php');
 
 require_once('../models/functions.php');
 
