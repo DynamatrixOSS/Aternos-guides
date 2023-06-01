@@ -1,6 +1,8 @@
 <?php
 
-class Article extends \Aternos\Model\GenericModel
+use Aternos\Model\GenericModel;
+
+class Article extends GenericModel
 {
     // the name of your model (and table)
     public static function getName() : string
@@ -9,8 +11,9 @@ class Article extends \Aternos\Model\GenericModel
     }
 
     // all public properties are database fields
-    public int $ID;
+    public mixed $ID;
     public string $title;
     public string $summary;
+    public string $content;
     public int $views;
 }

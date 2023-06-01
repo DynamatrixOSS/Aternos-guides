@@ -1,0 +1,33 @@
+label {
+    padding-right: 50px;
+}
+
+textarea#content {
+    width: 400px;
+    height: 200px;
+}
+
+textarea#summary {
+    width: 400px;
+    height: 100px;
+}
+
+textarea#title {
+    width: 400px;
+}
+
+textarea {
+    border-style: groove;
+    border-color: #2B87D3;
+    border-width: 2px;
+    border-radius: 10px;
+    background-color: rgba(43, 135, 211, 0.1);
+}
+
+button {
+    padding: 10px 20px;
+    background-color: rgba(43, 135, 211, 50);
+    border-color: #2B87D3;
+    border-radius: 10px;
+    color: white;
+}

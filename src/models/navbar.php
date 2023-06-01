@@ -7,7 +7,7 @@
                 </a>
 
                 <?php
-                require_once 'vendor/autoload.php';
+                require_once('vendor/autoload.php');
 
                 require_once('src/models/functions.php');
 
@@ -15,13 +15,15 @@
 
                 $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCreds['user'], $dbCreds['password'], "", $dbCreds['database']);
                 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
+
+                require_once("classes/User.php");
                 ?>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="../../index.php" class="nav-link px-2 <?php echo getConditionalClass(basename($_SERVER['PHP_SELF']), 'home', 'text-secondary', 'text-white');?>">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 <?php echo getConditionalClass(basename($_SERVER['PHP_SELF']), 'articles', 'text-secondary', 'text-white');?>">Articles</a></li>
-                    <li><a href="../../about.php" class="nav-link px-2 <?php echo getConditionalClass(basename($_SERVER['PHP_SELF']), 'about', 'text-secondary', 'text-white');?>">About</a></li>
-                    <li><a href="#" class="nav-link px-2 <?php echo getConditionalClass(basename($_SERVER['PHP_SELF']), 'Privacy', 'text-secondary', 'text-white');?>">FAQs</a></li>
+                    <li><a href="../../index.php" class="nav-link px-2 text-white">Home</a></li>
+                    <li><a href="../../articles.php" class="nav-link px-2 text-white">Articles</a></li>
+                    <li><a href="../../about.php" class="nav-link px-2 text-white">About</a></li>
+                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="search.php">
@@ -34,9 +36,10 @@
                         <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
                         <a href="register.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
                     <?php else:?>
-                        <?php include "classes/User.php"; $userQuery = User::select(["id" => $_SESSION['authenticated']]);?>
-                        <p><?php echo $userQuery[0]->username ?></p>
-                    <?php endif;?>
+                        <?php $userQuery = User::select(["id" => $_SESSION['authenticated']]);?>
+                        <a href="profile.php"><button type="button" class="btn btn-outline-light me-2"><?php echo $userQuery[0]->username ?></button></a>
+                        <a href="../../src/validation/logoutHandler.php"><button type="button" class="btn btn-warning">Log out</button></a>
+                        <?php session_abort(); endif;?>
                 </div>
             </div>
         </div>
