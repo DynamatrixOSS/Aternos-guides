@@ -36,7 +36,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
                 echo "<p>Results for search query '$word'</p>";
 
             } else {
-                $articleQueryResult = Article::select();
+                $articleQueryResult = Article::select(["approved"=>true]);
             }
             if (count($articleQueryResult) === 0) {
                 echo 'No articles found';
