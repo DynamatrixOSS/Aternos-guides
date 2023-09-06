@@ -53,7 +53,7 @@
                     </div>
                 </div>
 
-                <div class="col"></div> <!--right space--!>
+                <div class="col"></div>
             </div>
                 <?php
                 if (isset($_SESSION['exCode'])) {
