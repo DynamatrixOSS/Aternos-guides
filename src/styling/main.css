@@ -28,3 +28,7 @@
 a {
     text-decoration: none;
 }
+
+.card-body>form {
+    display: inline-block;
+}
