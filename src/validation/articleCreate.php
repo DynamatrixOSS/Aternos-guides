@@ -11,7 +11,6 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
 
 include "../models/classes/Article.php";
 
-var_dump($_POST);
 
 $article = new Article();
 
