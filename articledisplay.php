@@ -11,7 +11,6 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
 
 include "src/models/classes/Article.php";
-
 ?>
 
 <html lang="en">
@@ -48,6 +47,9 @@ session_abort();
     <div>
         <?php
             $article = Article::select(["id" => $article_id]);
+
+            $article[0]->views++;
+            $article[0]->save();
 
             if (count($article) === 0) {
                 echo '<h2>This article could not be found...</h2>';
