@@ -31,6 +31,9 @@
                     if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) > 0) :?>
                     <li><a href="create.php" class="nav-link px-2 text-white">Create Article</a></li>
                     <?php endif; ?>
+                    <?php if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) >= 2) :?>
+                    <li><a href="reviewing.php" class="nav-link px-2 text-white">Review Articles</a></li>
+                    <?php endif; ?>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="../../articles.php" method="POST">
