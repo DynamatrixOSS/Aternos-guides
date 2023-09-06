@@ -53,6 +53,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
                     foreach($articleQueryResult as $user) {
                         /** @var Article $user */
                         echo '<li> <a href="article/' .$user->ID. '-'.str_replace(" ", "-", $user->title).'">'.$user->title.'</a></li>';
+                        echo '<li> <a href="article/' .$article->id. '-'.str_replace(" ", "-", $article->title).'">'.$article->title.'</a></li>';
                     }
                     ?>
                 </ul>
@@ -69,6 +70,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
                     foreach($articleQueryResult as $user) {
                         /** @var Article $user */
                         echo '<li> <a href="article/' .$user->ID. '-'.str_replace(" ", "-", $user->title).'">'.$user->title.'</a></li>';
+                        echo '<li> <a href="article/' .$article->id. '-'.str_replace(" ", "-", $article->title).'">'.$article->title.'</a></li>';
                     }
                     ?>
                 </ul>
