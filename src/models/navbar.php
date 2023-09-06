@@ -31,14 +31,14 @@
                     <li><a href="/faq" class="nav-link px-2 text-white">FAQs</a></li>
                     <?php
                     if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) > 0) :?>
-                    <li><a href="create" class="nav-link px-2 text-white">Create Article</a></li>
+                    <li><a href="/create" class="nav-link px-2 text-white">Create Article</a></li>
                     <?php endif; ?>
                     <?php if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) >= 2) :?>
-                    <li><a href="reviewing" class="nav-link px-2 text-white">Review Articles</a></li>
+                    <li><a href="/reviewing" class="nav-link px-2 text-white">Review Articles</a></li>
                     <?php endif; ?>
                 </ul>
 
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="../../articles" method="POST">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/articles" method="POST">
                     <input type="search" name="search" id="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
                 </form>
 
@@ -49,7 +49,7 @@
                         <a href="register"><button type="button" class="btn btn-warning">Sign-up</button></a>
                     <?php else:?>
                         <a href="profile"><button type="button" class="btn btn-outline-light me-2"><?php echo $userQuery[0]->username ?></button></a>
-                        <a href="../../src/validation/logoutHandler.php"><button type="button" class="btn btn-warning">Log out</button></a>
+                        <a href="/src/validation/logoutHandler.php"><button type="button" class="btn btn-warning">Log out</button></a>
                         <?php session_abort(); endif;?>
                 </div>
             </div>

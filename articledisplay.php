@@ -34,7 +34,7 @@ $article_id = explode("-", explode("/", $_SERVER['REQUEST_URI'])[2])[0];
 if (($userQuery[0]->roleID) >= 2) {
    echo <<<EOL
         <div class="pt-5 container">
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="../src/validation/articleDelete.php" method="POST">
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/src/validation/articleDelete.php" method="POST">
                 <input type="hidden" name="article_id" value="$article_id">
                 <button class="btn btn-danger" type="submit">Delete article</button>
             </form>
