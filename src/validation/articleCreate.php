@@ -17,7 +17,7 @@ $article->title = $_POST['title'];
 
 $ArticleExists = Article::select(["title"=>$_POST['title']]);
 
-if ($ArticleExists->wasSuccessful()) {
+if ($ArticleExists->wasSuccessful() && count($ArticleExists) !== 0) {
     session_start();
     var_dump($ArticleExists);
     $_SESSION['message'] = "An article with the title " . $ArticleExists[0]->title . " already exists";
