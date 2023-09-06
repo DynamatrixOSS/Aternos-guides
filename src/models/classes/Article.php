@@ -11,7 +11,7 @@ class Article extends GenericModel
     }
 
     // all public properties are database fields
-    public mixed $ID;
+    public mixed $id;
     public string $title;
     public string $summary;
     public string $content;
