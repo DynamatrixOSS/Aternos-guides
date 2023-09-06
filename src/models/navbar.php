@@ -17,6 +17,9 @@
                 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
 
                 require_once("classes/User.php");
+
+                session_start();
+                $userQuery = User::select(["id" => $_SESSION['authenticated']]);
                 ?>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -24,6 +27,10 @@
                     <li><a href="../../articles.php" class="nav-link px-2 text-white">Articles</a></li>
                     <li><a href="../../about.php" class="nav-link px-2 text-white">About</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+                    <?php
+                    if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) > 0) :?>
+                    <li><a href="create.php" class="nav-link px-2 text-white">Create Article</a></li>
+                    <?php endif; ?>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="../../articles.php" method="POST">
@@ -32,11 +39,10 @@
 
                 <div class="text-end">
                     <?php
-                    session_start(); if (!isset($_SESSION['authenticated'])) :?>
+                    if (!isset($_SESSION['authenticated'])) :?>
                         <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
                         <a href="register.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
                     <?php else:?>
-                        <?php $userQuery = User::select(["id" => $_SESSION['authenticated']]);?>
                         <a href="profile.php"><button type="button" class="btn btn-outline-light me-2"><?php echo $userQuery[0]->username ?></button></a>
                         <a href="../../src/validation/logoutHandler.php"><button type="button" class="btn btn-warning">Log out</button></a>
                         <?php session_abort(); endif;?>
