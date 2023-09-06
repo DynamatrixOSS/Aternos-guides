@@ -15,7 +15,7 @@ $userQuery = User::select(["id" => $_SESSION['authenticated']]);
 
 if (!isset($_SESSION['authenticated'])) {
     header("Location: login.php");
-} else if (!$userQuery[0]->roleID > 0) {
+} else if ((!$userQuery[0]->roleID) > 0) {
     header("Location: codes/403.php");
 }
 session_abort();
