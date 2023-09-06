@@ -48,14 +48,13 @@ session_abort();
         <?php
             $article = Article::select(["id" => $article_id]);
 
-            $article[0]->views++;
-            $article[0]->save();
-
             if (count($article) === 0) {
                 echo '<h2>This article could not be found...</h2>';
             } else {
                 echo '<h2>' . $article[0]->title . '</h2>';
                 echo $article[0]->content;
+                $article[0]->views++;
+                $article[0]->save();
             }
         ?>
     </div>
