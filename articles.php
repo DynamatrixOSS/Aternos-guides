@@ -30,7 +30,13 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
             <?php
             include "src/models/classes/Article.php";
 
-            $articleQueryResult = Article::select();
+            if (isset($_POST['search'])) {
+                $word = $_POST['search'];
+                $articleQueryResult = Article::select([["title","LIKE","%$word%"]]);
+
+            } else {
+                $articleQueryResult = Article::select();
+            }
             if (count($articleQueryResult) === 0) {
                 echo 'No articles found';
             }
