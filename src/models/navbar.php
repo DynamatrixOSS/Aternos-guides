@@ -25,10 +25,10 @@
                 ?>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="../../index" class="nav-link px-2 text-white">Home</a></li>
-                    <li><a href="../../articles" class="nav-link px-2 text-white">Articles</a></li>
-                    <li><a href="../../about" class="nav-link px-2 text-white">About</a></li>
-                    <li><a href="../../faq" class="nav-link px-2 text-white">FAQs</a></li>
+                    <li><a href="/index" class="nav-link px-2 text-white">Home</a></li>
+                    <li><a href="/articles" class="nav-link px-2 text-white">Articles</a></li>
+                    <li><a href="/about" class="nav-link px-2 text-white">About</a></li>
+                    <li><a href="/faq" class="nav-link px-2 text-white">FAQs</a></li>
                     <?php
                     if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) > 0) :?>
                     <li><a href="create" class="nav-link px-2 text-white">Create Article</a></li>
