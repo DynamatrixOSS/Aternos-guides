@@ -20,4 +20,4 @@ var_dump($article);
 $article[0]->approved = true;
 $article[0]->save();
 
-header('Location: ../../reviewing.php');
+header('Location: ../../reviewing');
