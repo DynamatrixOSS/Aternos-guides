@@ -41,6 +41,7 @@ session_abort();
             <h1>Article writer</h1>
             <form action="src/validation/articleCreate.php" method="post" style="float: left">
                 <label for="title" class="h3">Title</label> <br>
+                <?php session_start(); if (isset($_SESSION['message'])) { echo $_SESSION['message'] . '<br>'; unset($_SESSION['message']);} ?>
                 <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required></textarea> <br>
 
                 <label for="summary" class="h3">Summary</label> <br>
