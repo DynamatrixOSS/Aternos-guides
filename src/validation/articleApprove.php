@@ -13,10 +13,7 @@ include "../models/classes/Article.php";
 
 $articleID = $_POST['article_id'];
 
-var_dump($articleID);
-
 $article = Article::select(["id"=>$articleID]);
-var_dump($article);
 $article[0]->approved = true;
 $article[0]->save();
 
