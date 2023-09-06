@@ -55,9 +55,10 @@ session_abort();
         <div class="card-body">
             <h5 class="card-title">$article->title</h5>
             <p class="card-text">$article->summary</p>
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="src/validation/articleApprove.php" method="POST">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="src/validation/articleDelete.php" method="POST">
                     <input type="hidden" name="article_id" value="$article->id">
                     <button class="btn btn-primary" type="submit">Approve article</button>
+                    <button class="btn btn-danger" type="submit">Delete article</button>
                 </form>
         </div>
     </div>
