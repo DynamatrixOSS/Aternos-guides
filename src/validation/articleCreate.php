@@ -14,6 +14,16 @@ include "../models/classes/Article.php";
 
 $article = new Article();
 $article->title = $_POST['title'];
+
+$ArticleExists = Article::select(["title"=>$_POST['title']]);
+
+if ($ArticleExists->wasSuccessful()) {
+    session_start();
+    var_dump($ArticleExists);
+    $_SESSION['message'] = "An article with the title " . $ArticleExists[0]->title . " already exists";
+    Header('Location: ../../../create.php');
+}
+
 $article->summary = $_POST['summary'];
 $article->content = $_POST['content'];
 $article->views = 0;
