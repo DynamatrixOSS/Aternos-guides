@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS articles (
     title VARCHAR(260) unique,
     summary VARCHAR(260),
     content LONGTEXT,
-    views INT
+    views INT,
+    approved bool default false
 );
