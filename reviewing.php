@@ -14,9 +14,9 @@ session_start();
 $userQuery = User::select(["id" => $_SESSION['authenticated']]);
 
 if (!isset($_SESSION['authenticated'])) {
-    header("Location: login.php");
+    header("Location: login");
 } else if ((!$userQuery[0]->roleID) > 2) {
-    header("Location: codes/403.php");
+    header("Location: codes/403");
 }
 session_abort();
 ?>
