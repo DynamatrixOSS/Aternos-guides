@@ -33,6 +33,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
             if (isset($_POST['search'])) {
                 $word = $_POST['search'];
                 $articleQueryResult = Article::select([["title","LIKE","%$word%"]]);
+                echo "<p>Results for search query '$word'</p>";
 
             } else {
                 $articleQueryResult = Article::select();
