@@ -36,7 +36,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
             }
             foreach($articleQueryResult as $article) {
                 /** @var Article $article */
-                $url = $article->ID . '-' . str_replace(' ', '-', $article->title);
+                $url = $article->id . '-' . str_replace(' ', '-', $article->title);
                 echo <<<EOL
 <a href="article/$url">
     <div class="card text-start">
