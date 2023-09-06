@@ -46,7 +46,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
                     <?php
                     include "src/models/classes/Article.php";
                     $article = new Article();
-                    $articleQueryResult = Article::select(order: ["views" => Aternos\Model\Query\OrderField::DESCENDING], limit: 5);
+                    $articleQueryResult = Article::select(["approved"=>true], order: ["views" => Aternos\Model\Query\OrderField::DESCENDING], limit: 5);
                     if (count($articleQueryResult) === 0) {
                         echo 'No articles found';
                     }
@@ -62,7 +62,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
                 <h2>Pinned articles</h2>
                 <ul class="hidden">
                     <?php
-                    $articleQueryResult = Article::select(limit: 5);
+                    $articleQueryResult = Article::select(["approved"=>true], limit: 5);
                     if (count($articleQueryResult) === 0) {
                         echo 'No articles found';
                     }
