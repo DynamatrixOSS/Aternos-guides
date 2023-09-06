@@ -13,7 +13,6 @@ include "../models/classes/Article.php";
 
 
 $article = new Article();
-
 $article->title = $_POST['title'];
 $article->summary = $_POST['summary'];
 $article->content = $_POST['content'];
