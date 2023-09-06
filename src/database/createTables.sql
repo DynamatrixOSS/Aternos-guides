@@ -7,8 +7,8 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 CREATE TABLE IF NOT EXISTS articles (
-    ID VARCHAR(16) PRIMARY KEY,
-    title VARCHAR(260),
+    id VARCHAR(16) PRIMARY KEY,
+    title VARCHAR(260) unique,
     summary VARCHAR(260),
     content LONGTEXT,
     views INT
