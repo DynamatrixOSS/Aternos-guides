@@ -27,8 +27,9 @@ include "src/models/classes/Article.php";
 
 <body>
 <?php
-session_start();
-$userQuery = User::select(["id" => $_SESSION['authenticated']]);
+if (isset($_SESSION['authenticated'])) {
+    $userQuery = User::select(["id" => $_SESSION['authenticated']]);
+}
 $article_id = explode("-", explode("/", $_SERVER['REQUEST_URI'])[2])[0];
 
 
@@ -42,7 +43,7 @@ session_abort();
             if (count($article) === 0) {
                 echo '<h2>This article could not be found...</h2>';
             } else {
-                if (($userQuery[0]->roleID) >= 2) {
+                if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) >= 2) {
                     echo <<<EOL
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/src/validation/articleDelete.php" method="POST">
             <input type="hidden" name="article_id" value="$article_id">
