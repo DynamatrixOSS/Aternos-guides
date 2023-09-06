@@ -55,7 +55,7 @@
             session_destroy()
             ?>
             <div>
-                <span class="psw"><a href="register.php">Already have an account?</a></span>
+                <span class="psw"><a href="register">Already have an account?</a></span>
             </div>
         </div>
         <div class="col"><!--3/3 empty--!> </div>
