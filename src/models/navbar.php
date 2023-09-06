@@ -19,7 +19,9 @@
                 require_once("classes/User.php");
 
                 session_start();
-                $userQuery = User::select(["id" => $_SESSION['authenticated']]);
+                if (isset($_SESSION['authenticated'])) {
+                    $userQuery = User::select(["id" => $_SESSION['authenticated']]);
+                }
                 ?>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
