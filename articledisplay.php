@@ -49,12 +49,15 @@ session_abort();
             <input type="hidden" name="article_id" value="$article_id">
             <button class="btn btn-danger" type="submit">Delete article</button>
         </form>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/editor.php" method="POST">
+        EOL;
+        if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID >= 1)) {
+            echo <<<EOL
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/editor.php" method="POST">
             <input type="hidden" name="article_id" value="$article_id">
             <button class="btn btn-warning" type="submit">Edit article</button>
         </form>
         <hr>
-EOL;
+        EOL;
                 }
 
                 $Parsedown = new Parsedown();
