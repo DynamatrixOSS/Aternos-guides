@@ -24,10 +24,8 @@ if ($ArticleExists->wasSuccessful() && count($ArticleExists) !== 0) {
     Header('Location: ../../../create');
 }
 
-$Parsedown = new Parsedown();
-
 $article->summary = $_POST['summary'];
-$article->content = $Parsedown->text($_POST['content']);
+$article->content = $_POST['content'];
 $article->views = 0;
 $article->save();
 
