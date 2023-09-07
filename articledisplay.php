@@ -50,6 +50,7 @@ session_abort();
             <button class="btn btn-danger" type="submit">Delete article</button>
         </form>
         EOL;
+                }
         if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID >= 1)) {
             echo <<<EOL
                     <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/editor.php" method="POST">
@@ -58,7 +59,7 @@ session_abort();
         </form>
         <hr>
         EOL;
-                }
+        }
 
                 $Parsedown = new Parsedown();
 
