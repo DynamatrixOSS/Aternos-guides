@@ -39,20 +39,25 @@ session_abort();
     <body>
         <div class="container">
             <h1>Article writer</h1>
+
             <form action="src/validation/articleCreate.php" method="post" style="float: left">
                 <label for="title" class="h3">Title</label> <br>
                 <?php session_start(); if (isset($_SESSION['message'])) { echo $_SESSION['message'] . '<br>'; unset($_SESSION['message']);} ?>
                 <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required></textarea> <br>
-
-                <label for="summary" class="h3">Summary</label> <br>
-                <textarea name="summary" id="summary" placeholder="Because Aternos is free..." required></textarea> <br>
-
-                <label for="content" class="h3">Content</label> <br>
-                <textarea name="content" id="content" placeholder="Its amazing because..." required></textarea> <br>
-
-                <button type="submit">Submit</button>
+                </div>
+                <div>
+                    <label for="summary" class="h3">Summary</label> <br>
+                    <textarea name="summary" id="summary" placeholder="Because Aternos is free..." required></textarea> <br>
+                </div>
+                <div>
+                    <label for="content" class="h3">Content</label> <br>
+                    <textarea name="content" id="content" placeholder="Its amazing because..." required></textarea> <br>
+                </div>
+                <div class="space">
+                    <button class="btn btn-primary  btn-lg btn-block " type="submit">Submit</button>
+                </div>
             </form>
-            <div style="float: right; padding-right: 25%">
+            <div class="line">
                 <h2>Remember:</h2>
                 <ul>
                     <li>Keep it civil</li>
