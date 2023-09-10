@@ -34,8 +34,8 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
             </div>
             <h2>Welcome to Aternos Guides</h2>
             <p>An article site ran by Aternos regulars and an Aternos moderator. Here you may find all kinds of articles about topics and issues that are not covered in Aternos' help center itself. Have an issue that you don't know the fix to? Try our articles below, in the articles page or join the Aternos discord for help.</p>
-            <a href="about.php"><button class="btn btn-primary">About Us</button></a>
-            <a href="articles.php"><button class="btn btn-outline-primary">Articles</button></a>
+            <a href="about"><button class="btn btn-primary">About Us</button></a>
+            <a href="articles"><button class="btn btn-outline-primary">Articles</button></a>
             <hr>
         </div>
 
@@ -46,13 +46,13 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
                     <?php
                     include "src/models/classes/Article.php";
                     $article = new Article();
-                    $articleQueryResult = Article::select(order: ["views" => Aternos\Model\Query\OrderField::DESCENDING], limit: 5);
+                    $articleQueryResult = Article::select(["approved"=>true], order: ["views" => Aternos\Model\Query\OrderField::DESCENDING], limit: 5);
                     if (count($articleQueryResult) === 0) {
                         echo 'No articles found';
                     }
-                    foreach($articleQueryResult as $user) {
-                        /** @var Article $user */
-                        echo '<li> <a href="article/' .$user->ID. '-'.str_replace(" ", "-", $user->title).'">'.$user->title.'</a></li>';
+                    foreach($articleQueryResult as $article) {
+                        /** @var Article $article */
+                        echo '<li> <a href="article/' .$article->id. '-'.str_replace(" ", "-", $article->title).'">'.$article->title.'</a></li>';
                     }
                     ?>
                 </ul>
@@ -62,13 +62,13 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
                 <h2>Pinned articles</h2>
                 <ul class="hidden">
                     <?php
-                    $articleQueryResult = Article::select(limit: 5);
+                    $articleQueryResult = Article::select(["approved"=>true], limit: 5);
                     if (count($articleQueryResult) === 0) {
                         echo 'No articles found';
                     }
-                    foreach($articleQueryResult as $user) {
-                        /** @var Article $user */
-                        echo '<li> <a href="article/' .$user->ID. '-'.str_replace(" ", "-", $user->title).'">'.$user->title.'</a></li>';
+                    foreach($articleQueryResult as $article) {
+                        /** @var Article $article */
+                        echo '<li> <a href="article/' .$article->id. '-'.str_replace(" ", "-", $article->title).'">'.$article->title.'</a></li>';
                     }
                     ?>
                 </ul>

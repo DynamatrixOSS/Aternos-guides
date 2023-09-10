@@ -18,7 +18,7 @@ $mailQueryResult = User::select(["mail" => $mail]);
 if (count($mailQueryResult) === 0) {
     session_start();
     $_SESSION['exCode'] = "Mail not found.";
-    header("Location: ../../login.php");
+    header("Location: ../../login");
 }
 
 $passwordAuthenticity = password_verify($_POST['psw'], $mailQueryResult[0]->password);
@@ -26,10 +26,10 @@ $passwordAuthenticity = password_verify($_POST['psw'], $mailQueryResult[0]->pass
 session_start();
 if ($passwordAuthenticity) {
     $_SESSION['authenticated'] = $mailQueryResult[0]->id;
-    header('Location: ../../index.php');
+    header('Location: ../../index');
     return;
 } else {
     $_SESSION['exCode'] = 'Incorrect password.';
-    header("Location: ../../login.php");
+    header("Location: ../../login");
     return;
 }

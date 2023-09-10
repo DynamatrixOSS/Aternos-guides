@@ -1,6 +1,7 @@
 {
     "require": {
-        "aternos/model": "^3.0"
+        "aternos/model": "^3.0",
+        "erusev/parsedown": "^1.7"
     },
 
     "autoload": {

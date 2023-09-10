@@ -21,14 +21,14 @@ $mailQuery = User::select(["mail" => $mail]);
 if (count($usernameQuery) !== 0) {
     session_start();
     $_SESSION['exCode'] = 'Username already exists.';
-    header("Location: ../../register.php");
+    header("Location: ../../register");
     exit();
 }
 
 if (count($mailQuery) !== 0) {
     session_start();
     $_SESSION['exCode'] = 'Mail already exists.';
-    header("Location: ../../register.php");
+    header("Location: ../../register");
     exit();
 }
 
@@ -40,5 +40,5 @@ $user->save();
 
 session_start();
 $_SESSION['authenticated'] = $user->id;
-header('Location: ../../index.php');
+header('Location: ../../index');
 return;

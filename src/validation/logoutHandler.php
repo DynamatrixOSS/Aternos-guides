@@ -4,5 +4,5 @@ if (isset($_SESSION['authenticated'])) {
     session_destroy();
 }
 
-header("Location: ../../index.php");
+header("Location: ../../index");
 exit();

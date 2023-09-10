@@ -14,9 +14,9 @@ session_start();
 $userQuery = User::select(["id" => $_SESSION['authenticated']]);
 
 if (!isset($_SESSION['authenticated'])) {
-    header("Location: login.php");
-} else if (!$userQuery[0]->roleID > 0) {
-    header("Location: codes/403.php");
+    header("Location: login");
+} else if ((!$userQuery[0]->roleID) > 0) {
+    header("Location: codes/403");
 }
 session_abort();
 ?>
@@ -40,10 +40,10 @@ session_abort();
         <div class="container">
             <h1>Article writer</h1>
 
-            <form action="src/validation/articleCreate.php" method="post" class="left">
-                <div class="space">
-                    <label for="title" class="h3">Title</label> <br>
-                    <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required></textarea> <br>
+            <form action="src/validation/articleCreate.php" method="post" style="float: left">
+                <label for="title" class="h3">Title</label> <br>
+                <?php session_start(); if (isset($_SESSION['message'])) { echo $_SESSION['message'] . '<br>'; unset($_SESSION['message']);} ?>
+                <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required></textarea> <br>
                 </div>
                 <div>
                     <label for="summary" class="h3">Summary</label> <br>

@@ -11,15 +11,23 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
 
 include "../models/classes/Article.php";
 
-var_dump($_POST);
 
 $article = new Article();
-
 $article->title = $_POST['title'];
+
+$ArticleExists = Article::select(["title"=>$_POST['title']]);
+
+if ($ArticleExists->wasSuccessful() && count($ArticleExists) !== 0) {
+    session_start();
+    var_dump($ArticleExists);
+    $_SESSION['message'] = "An article with the title " . $ArticleExists[0]->title . " already exists";
+    Header('Location: ../../../create');
+}
+
 $article->summary = $_POST['summary'];
 $article->content = $_POST['content'];
 $article->views = 0;
 $article->save();
 
-header("Location: ../../index.php");
+header("Location: ../../index");
 exit();

@@ -16,7 +16,7 @@
 <form action="/src/validation/registrationValidation.php" method="post">
 
     <div class="top row align-items-start">
-        <div class="col"><!--1/3 empty--!> </div>
+        <div class="col"> </div>
         <div class="col shadow">
             <div class="row">
                 <div class="col top">
@@ -55,10 +55,10 @@
             session_destroy()
             ?>
             <div>
-                <span class="psw"><a href="register.php">Already have an account?</a></span>
+                <span class="psw"><a href="register">Already have an account?</a></span>
             </div>
         </div>
-        <div class="col"><!--3/3 empty--!> </div>
+        <div class="col"></div>
     </div>
 </form>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>

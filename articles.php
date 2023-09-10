@@ -30,13 +30,20 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
             <?php
             include "src/models/classes/Article.php";
 
-            $articleQueryResult = Article::select();
+            if (isset($_POST['search'])) {
+                $word = $_POST['search'];
+                $articleQueryResult = Article::select([["title","LIKE","%$word%"]]);
+                echo "<p>Results for search query '$word'</p>";
+
+            } else {
+                $articleQueryResult = Article::select(["approved"=>true]);
+            }
             if (count($articleQueryResult) === 0) {
                 echo 'No articles found';
             }
             foreach($articleQueryResult as $article) {
                 /** @var Article $article */
-                $url = $article->ID . '-' . str_replace(' ', '-', $article->title);
+                $url = $article->id . '-' . str_replace(' ', '-', $article->title);
                 echo <<<EOL
 <a href="article/$url">
     <div class="card text-start">
