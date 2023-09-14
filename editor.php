@@ -45,6 +45,7 @@ session_abort();
         $article_id = $_POST['article_id'];
         $article = Article::select(["id" => $article_id]);
 ?>
+        <input type="hidden" name="article_id" value="<?= $article_id ?>">
         <label for="title" class="h3">Title</label> <br>
         <?php session_start(); if (isset($_SESSION['message'])) { echo $_SESSION['message'] . '<br>'; unset($_SESSION['message']);} ?>
         <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required><?= $article[0]->title ?></textarea> <br>
