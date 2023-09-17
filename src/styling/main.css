@@ -1,12 +1,7 @@
 .hidden {
     list-style-type: none;
 }
-.m25L{
-    margin-left: 25%
-}
-.m25R{
-    margin-right: 25%;
-}
+
 .img{
     display: block;
     width: 275px; height: 275px;
@@ -31,4 +26,15 @@ a {
 
 .card-body>form {
     display: inline-block;
+}
+@media (max-width: 766px) {
+    /* Change rows to columns */
+    .break {
+        flex-direction: column;
+
+    }
+    h2{
+        text-align: center;
+        padding-top: 25px;
+    }
 }
