@@ -2,10 +2,10 @@ label {
     padding-right: 50px;
 }
 textarea#title {
-    width: 200%;
+    width: 400%;
 }
 textarea#summary {
-    width: 200%;
+    width: 400%;
     height: 100px;
 }
 
