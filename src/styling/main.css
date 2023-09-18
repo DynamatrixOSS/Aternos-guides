@@ -28,7 +28,6 @@ a {
     display: inline-block;
 }
 @media (max-width: 766px) {
-    /* Change rows to columns */
     .break {
         flex-direction: column;
 

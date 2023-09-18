@@ -18,16 +18,13 @@
                 <div class="col"></div>
                 <div class="col">
                     <div class="row">
-
-
                         <div class="col shadow shadow1">
-                            <div class="row ">
-
+                            <div class="row break">
                                 <div class="col top">
-                                    <div class="">
+                                    <div class="col">
                                         <img class="float-start img" src="src/img/Aternos_logo.svg" alt="Aternos Logo" >
                                     </div>
-                                    <div class="">
+                                    <div class="col">
                                         <img class="float-end img" src="src/img/Atomic.png" alt="Blue Atomic">
                                     </div>
                                 </div>

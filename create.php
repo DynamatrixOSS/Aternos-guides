@@ -44,20 +44,20 @@ session_abort();
                 <label for="title" class="h3">Title</label> <br>
                 <?php session_start(); if (isset($_SESSION['message'])) { echo $_SESSION['message'] . '<br>'; unset($_SESSION['message']);} ?>
                 <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required></textarea> <br>
-                </div>
-                <div>
+
+
                     <label for="summary" class="h3">Summary</label> <br>
                     <textarea name="summary" id="summary" placeholder="Because Aternos is free..." required></textarea> <br>
-                </div>
-                <div>
+
+
                     <label for="content" class="h3">Content</label> <br>
                     <textarea name="content" id="content" placeholder="Its amazing because..." required></textarea> <br>
-                </div>
+   
                 <div class="space">
                     <button class="btn btn-primary  btn-lg btn-block " type="submit">Submit</button>
-                </div>
+
             </form>
-            <div class="line">
+            <div class="right">
                 <h2>Remember:</h2>
                 <ul>
                     <li>Keep it civil</li>

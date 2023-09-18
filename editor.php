@@ -38,27 +38,32 @@ session_abort();
 <?php include_once 'src/models/navbar.php' ?>
 
 <body>
-<div class="container">
-    <h1>Article writer</h1>
-    <form action="src/validation/articleEdit.php" method="post" style="float: left">
-        <?php
-        $article_id = $_POST['article_id'];
-        $article = Article::select(["id" => $article_id]);
-?>
-        <input type="hidden" name="article_id" value="<?= $article_id ?>">
-        <label for="title" class="h3">Title</label> <br>
-        <?php session_start(); if (isset($_SESSION['message'])) { echo $_SESSION['message'] . '<br>'; unset($_SESSION['message']);} ?>
-        <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required><?= $article[0]->title ?></textarea> <br>
-
-        <label for="summary" class="h3">Summary</label> <br>
-        <textarea name="summary" id="summary" placeholder="Because Aternos is free..." required><?= $article[0]->summary ?></textarea> <br>
-
-        <label for="content" class="h3">Content</label> <br>
-        <textarea name="content" id="content" placeholder="Its amazing because..." required><?= $article[0]->content ?></textarea> <br>
-
-        <button type="submit">Submit</button>
-    </form>
-    <div style="float: right; padding-right: 25%">
+    <div class="container">
+        <h1>Article writer</h1>
+        <form action="src/validation/articleEdit.php" method="post" style="float: left">
+            <?php
+            $article_id = $_POST['article_id'];
+            $article = Article::select(["id" => $article_id]);
+            ?>
+            <div>
+                <input type="hidden" name="article_id" value="<?= $article_id ?>">
+                <label for="title" class="h3">Title</label>
+            <?php session_start(); if (isset($_SESSION['message'])) { echo $_SESSION['message'] . '<br>'; unset($_SESSION['message']);} ?>
+                <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required><?= $article[0]->title ?></textarea> <br>
+            </div>
+            <div>
+                <label for="summary" class="h3">Summary</label>
+                <textarea name="summary" id="summary" placeholder="Because Aternos is free..." required><?= $article[0]->summary ?></textarea> <br>
+            </div>
+            <div>
+                <label for="content" class="h3">Content</label>
+                <textarea name="content" id="content" placeholder="Its amazing because..." required><?= $article[0]->content ?></textarea> <br>
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="right">
         <h2>Remember:</h2>
         <ul>
             <li>Keep it civil</li>
@@ -67,7 +72,7 @@ session_abort();
             <li>Only facts</li>
         </ul>
     </div>
-</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>
