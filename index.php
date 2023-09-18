@@ -38,40 +38,41 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
             <a href="articles"><button class="btn btn-outline-primary">Articles</button></a>
             <hr>
         </div>
-
-        <div class="container pt-5">
-            <div class="float-start m25L">
-                <h2>Popular articles</h2>
-                <ul class="hidden">
-                    <?php
-                    include "src/models/classes/Article.php";
-                    $article = new Article();
-                    $articleQueryResult = Article::select(["approved"=>true], order: ["views" => Aternos\Model\Query\OrderField::DESCENDING], limit: 5);
-                    if (count($articleQueryResult) === 0) {
-                        echo 'No articles found';
-                    }
-                    foreach($articleQueryResult as $article) {
-                        /** @var Article $article */
-                        echo '<li> <a href="article/' .$article->id. '-'.str_replace(" ", "-", $article->title).'">'.$article->title.'</a></li>';
-                    }
-                    ?>
-                </ul>
-            </div>
-
-            <div class="float-end m25R">
-                <h2>Pinned articles</h2>
-                <ul class="hidden">
-                    <?php
-                    $articleQueryResult = Article::select(["approved"=>true], limit: 5);
-                    if (count($articleQueryResult) === 0) {
-                        echo 'No articles found';
-                    }
-                    foreach($articleQueryResult as $article) {
-                        /** @var Article $article */
-                        echo '<li> <a href="article/' .$article->id. '-'.str_replace(" ", "-", $article->title).'">'.$article->title.'</a></li>';
-                    }
-                    ?>
-                </ul>
+        <div class="container">
+            <div class="row break" >
+                <div class="col">
+                    <h2>Popular articles</h2>
+                    <ul class="hidden">
+                        <?php
+                        include "src/models/classes/Article.php";
+                        $article = new Article();
+                        $articleQueryResult = Article::select(["approved"=>true], order: ["views" => Aternos\Model\Query\OrderField::DESCENDING], limit: 5);
+                        if (count($articleQueryResult) === 0) {
+                            echo 'No articles found';
+                        }
+                        foreach($articleQueryResult as $article) {
+                            /** @var Article $article */
+                            echo '<li> <a href="article/' .$article->id. '-'.str_replace(" ", "-", $article->title).'">'.$article->title.'</a></li>';
+                        }
+                        ?>
+                    </ul>
+                </div>
+                
+                <div class="col">
+                    <h2>Pinned articles</h2>
+                    <ul class="hidden">
+                        <?php
+                        $articleQueryResult = Article::select(["approved"=>true], limit: 5);
+                        if (count($articleQueryResult) === 0) {
+                            echo 'No articles found';
+                        }
+                        foreach($articleQueryResult as $article) {
+                            /** @var Article $article */
+                            echo '<li> <a href="article/' .$article->id. '-'.str_replace(" ", "-", $article->title).'">'.$article->title.'</a></li>';
+                        }
+                        ?>
+                    </ul>
+                </div>
             </div>
         </div>
 

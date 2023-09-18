@@ -12,7 +12,9 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
 include "../models/classes/Article.php";
 
 
-$article = Article::select(["title"=>$_POST['title']]);
+$article = Article::select(["id"=>$_POST['article_id']]);
+
+var_dump($article);
 
 $article[0]->title = $_POST['title'];
 $article[0]->summary = $_POST['summary'];
