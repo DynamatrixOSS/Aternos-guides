@@ -20,7 +20,7 @@
                     <div class="row">
 
 
-                        <div class="col shadow">
+                        <div class="col shadow shadow1">
                             <div class="row ">
 
                                 <div class="col top">
