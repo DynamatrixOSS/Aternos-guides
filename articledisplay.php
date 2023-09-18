@@ -31,6 +31,8 @@ $article = Article::select(["id" => $article_id[0]]);
 <?php include_once 'src/models/navbar.php' ?>
 
 <body>
+<?php include_once 'src/models/navbar.php' ?>
+
 <?php
 if (isset($_SESSION['authenticated'])) {
     $userQuery = User::select(["id" => $_SESSION['authenticated']]);
