@@ -14,6 +14,7 @@ include "src/models/classes/Article.php";
 
 $article_id = explode("-", explode("/", $_SERVER['REQUEST_URI'])[2]);
 $article = Article::select(["id" => $article_id[0]]);
+
 ?>
 
 <html lang="en">
@@ -65,10 +66,13 @@ session_abort();
                         </div>
                         <p>{$article[0]->views} views</p>
                         <hr>
+                    EOL;
+            }
+            echo <<<EOL
                         <h2>{$article[0]->title}</h2>
                         {$Parsedown->parse($article[0]->content)}
                     EOL;
-            }
+
             $article[0]->views++;
             $article[0]->save();
         }
