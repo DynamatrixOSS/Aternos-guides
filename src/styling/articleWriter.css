@@ -1,20 +1,21 @@
 label {
     padding-right: 50px;
 }
-
-textarea#content {
-    width: 400px;
-    height: 200px;
+textarea#title {
+    width: 200%;
 }
-
 textarea#summary {
-    width: 400px;
+    width: 200%;
     height: 100px;
 }
 
-textarea#title {
-    width: 400px;
+textarea#content {
+    width: 400%;
+    height: 500px;
 }
+
+
+
 
 textarea {
     border-style: groove;
