@@ -1,20 +1,21 @@
 label {
     padding-right: 50px;
 }
-
-textarea#content {
-    width: 400px;
-    height: 200px;
+textarea#title {
+    width: 400%;
 }
-
 textarea#summary {
-    width: 400px;
+    width: 400%;
     height: 100px;
 }
 
-textarea#title {
-    width: 400px;
+textarea#content {
+    width: 400%;
+    height: 500px;
 }
+
+
+
 
 textarea {
     border-style: groove;
@@ -23,11 +24,18 @@ textarea {
     border-radius: 10px;
     background-color: rgba(43, 135, 211, 0.1);
 }
+.space{
+    padding-top: 7%;
+}
+.line{
+    float: right;
+    padding-right: 25%
+}
+.left{
+    float: left
+}
 
-button {
-    padding: 10px 20px;
-    background-color: rgba(43, 135, 211, 50);
-    border-color: #2B87D3;
-    border-radius: 10px;
-    color: white;
+.right{
+    float: right; 
+    padding-right: 25%;
 }
