@@ -55,21 +55,19 @@ session_abort();
         </form>
         EOL;
                 }
-        if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID >= 1)) {
-            echo <<<EOL
-                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/editor.php" method="POST">
-            <input type="hidden" name="article_id" value="$article_id[0]">
-            <button class="btn btn-warning" type="submit">Edit article</button>
-        </form>
-        </div>
-        <hr>
-        EOL;
-        }
-
-                $Parsedown = new Parsedown();
-
-                echo '<h2>' . $article[0]->title . '</h2>';
-                echo $Parsedown->parse($article[0]->content);
+                if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID >= 1)) {
+                    echo <<<EOL
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/editor.php" method="POST">
+                            <input type="hidden" name="article_id" value="$article_id[0]">
+                            <button class="btn btn-warning" type="submit">Edit article</button>
+                        </form>
+                        </div>
+                        <p>{$article[0]->views} views</p>
+                        <hr>
+                        <h2>{$article[0]->title}</h2>
+                        {$Parsedown->parse($article[0]->content)}
+                    EOL;
+                }
                 $article[0]->views++;
                 $article[0]->save();
             }
