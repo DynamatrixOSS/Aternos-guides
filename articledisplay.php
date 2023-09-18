@@ -48,9 +48,10 @@ session_abort();
             } else {
                 if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) >= 2) {
                     echo <<<EOL
+        <div class="btn-group">            
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/src/validation/articleDelete.php" method="POST">
             <input type="hidden" name="article_id" value="$article_id[0]">
-            <button class="btn btn-danger" type="submit">Delete article</button>
+            <button type="button" class="btn btn-danger" type="submit">Delete article</button>
         </form>
         EOL;
                 }
@@ -60,6 +61,7 @@ session_abort();
             <input type="hidden" name="article_id" value="$article_id[0]">
             <button class="btn btn-warning" type="submit">Edit article</button>
         </form>
+        </div>
         <hr>
         EOL;
         }
