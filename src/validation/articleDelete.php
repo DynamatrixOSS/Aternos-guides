@@ -13,8 +13,6 @@ include "../models/classes/Article.php";
 
 $articleID = $_POST['article_id'];
 
-var_dump($articleID);
-
 $article = Article::select(["id"=>$articleID]);
 $article[0]->delete();
 
