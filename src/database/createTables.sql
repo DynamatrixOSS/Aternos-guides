@@ -4,6 +4,8 @@ CREATE TABLE IF NOT EXISTS users (
     mail NVARCHAR(256) UNIQUE,
     password VARCHAR(255),
     roleID INT(1)
+    roleID INT(1),
+    about VARCHAR(1000) DEFAULT 'I use Aternos Guides!'
 );
 
 CREATE TABLE IF NOT EXISTS articles (
