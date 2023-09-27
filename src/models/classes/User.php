@@ -16,4 +16,5 @@ class User extends GenericModel
     public string $mail;
     public string $password;
     public int $roleID;
+    public string $about;
 }
