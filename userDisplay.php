@@ -11,6 +11,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
 
 include "src/models/classes/User.php";
+include "src/models/classes/Article.php";
 
 $username = explode("-", explode("/", $_SERVER['REQUEST_URI'])[2]);
 $user = User::select(["username" => $username[0]]);
@@ -65,21 +66,48 @@ session_abort();
                         </form>
                         EOL;
             }
-//            if ((isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === $user[0]->id) || (isset($userQuery) && $userQuery[0]->roleID >= 1)) {
-//                echo <<<EOL
-//                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/editor.php" method="POST">
-//                            <input type="hidden" name="article_id" value="{$user[0]->id}">
-//                            <button class="btn btn-warning" type="dropdown">Edit user</button>
-//                        </form>
-//                        </div>
-//                        <hr>
-//                    EOL;
-//
-//            }
+            if ((isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === $user[0]->id) || (isset($userQuery) && $userQuery[0]->roleID >= 1)) {
+                echo <<<EOL
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/userEditor.php" method="POST">
+                            <input type="hidden" name="user_id" value="{$user[0]->id}">
+                            <button class="btn btn-warning" type="submit">Edit user</button>
+                        </form>
+                        </div>
+                        <hr>
+                    EOL;
+
+            }
         }
         ?>
-        <h1><?= $user[0]->username ?></h1>
     </div>
+    <div>
+        <h1><?= $user[0]->username ?></h1>
+        <?= $user[0]->about ?>
+    </div>
+    <?php
+        $articleQueryResult = Article::select(["author"=>$user[0]->username]);
+
+        if (count($articleQueryResult) !== 0) {
+            echo " 
+<div class=\"text-center pt-5 container\">
+<h2>Articles</h2>
+</div>";
+            foreach ($articleQueryResult as $article) {
+                /** @var Article $article */
+                $url = $article->id . '-' . str_replace(' ', '-', $article->title);
+                echo <<<EOL
+<a href="/article/$url">
+    <div class="card text-start">
+        <div class="card-body">
+            <h5 class="card-title">$article->title</h5>
+            <p class="card-text">$article->summary</p>
+        </div>
+    </div>
+</a>
+EOL;
+            }
+        }
+    ?>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
