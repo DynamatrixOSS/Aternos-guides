@@ -69,6 +69,7 @@ session_abort();
                     EOL;
             }
             echo <<<EOL
+                        <p>By <a href="/user/{$article[0]->author}" style="text-decoration: none">{$article[0]->author}</a></p>
                         <h2>{$article[0]->title}</h2>
                         {$Parsedown->parse($article[0]->content)}
                     EOL;
