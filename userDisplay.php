@@ -35,7 +35,7 @@ $user = User::select(["username" => $username[0]]);
 
 <?php
 if (isset($_SESSION['authenticated'])) {
-    $userQuery = User::select(["id" => $_SESSION['authenticated']]);
+    $userQuery = User::get($_SESSION['authenticated']);
 }
 
 
@@ -48,7 +48,7 @@ session_abort();
         if (count($user) === 0) {
             echo '<h2>This article could not be found...</h2>';
         } else {
-            if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) >= 2) {
+            if (isset($_SESSION['authenticated']) && ($userQuery->roleID) >= 2) {
                 echo <<<EOL
                         <div class="btn-group">            
                         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/src/validation/userDelete.php" method="POST">
@@ -66,17 +66,16 @@ session_abort();
                         </form>
                         EOL;
             }
-            if ((isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === $user[0]->id) || (isset($userQuery) && $userQuery[0]->roleID >= 1)) {
-                echo <<<EOL
-                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/userEditor.php" method="POST">
-                            <input type="hidden" name="user_id" value="{$user[0]->id}">
-                            <button class="btn btn-warning" type="submit">Edit user</button>
-                        </form>
-                        </div>
-                        <hr>
-                    EOL;
-
-            }
+//            if ((isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === $user[0]->id) || (isset($userQuery) && $userQuery->roleID > 1)) {
+//                echo <<<EOL
+//                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search" action="/userEditor.php" method="POST">
+//                            <input type="hidden" name="user_id" value="{$user[0]->id}">
+//                            <button class="btn btn-warning" type="submit">Edit user</button>
+//                        </form>
+//                        </div>
+//                        <hr>
+//                    EOL;
+//            }
         }
         ?>
     </div>
