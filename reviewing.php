@@ -1,4 +1,5 @@
 <?php
+
 require_once ('vendor/autoload.php');
 
 require_once('src/models/functions.php');
@@ -11,11 +12,11 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
 require_once ("src/models/classes/User.php");
 
 session_start();
-$userQuery = User::select(["id" => $_SESSION['authenticated']]);
+$userQuery = selectUser("id", $_SESSION['authenticated']);
 
 if (!isset($_SESSION['authenticated'])) {
     header("Location: login");
-} else if ((!$userQuery[0]->roleID) > 2) {
+} else if ((!$userQuery['data']->roleID) > 2) {
     header("Location: codes/403");
 }
 session_abort();
@@ -41,9 +42,9 @@ session_abort();
     <?php
     include "src/models/classes/Article.php";
 
-    $articleQueryResult = Article::select(["approved"=>false]);
+    $articleQueryResult = selectArticle("approved", false);
 
-    if (count($articleQueryResult) === 0) {
+    if ($articleQueryResult['status'] === 200) {
         echo 'No articles found';
     }
     foreach($articleQueryResult as $article) {
