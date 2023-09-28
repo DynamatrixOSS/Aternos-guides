@@ -7,21 +7,9 @@
                 </a>
 
                 <?php
-                require_once('vendor/autoload.php');
-
                 require_once('src/models/functions.php');
 
-                $dbCreds = databaseCredentials('.env');
-
-                $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCreds['user'], $dbCreds['password'], "", $dbCreds['database']);
-                \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
-
-                require_once("classes/User.php");
-
-                session_start();
-                if (isset($_SESSION['authenticated'])) {
-                    $userQuery = User::select(["id" => $_SESSION['authenticated']]);
-                }
+                $user = getAuthUser();
                 ?>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -30,10 +18,10 @@
                     <li><a href="/about" class="nav-link px-2 text-white">About</a></li>
                     <li><a href="/faq" class="nav-link px-2 text-white">FAQs</a></li>
                     <?php
-                    if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) > 0) :?>
+                    if (isset($_SESSION['authenticated']) && ($user->roleID) > 0) :?>
                     <li><a href="/create" class="nav-link px-2 text-white">Create Article</a></li>
                     <?php endif; ?>
-                    <?php if (isset($_SESSION['authenticated']) && ($userQuery[0]->roleID) >= 2) :?>
+                    <?php if (isset($_SESSION['authenticated']) && ($user->roleID) >= 2) :?>
                     <li><a href="/reviewing" class="nav-link px-2 text-white">Review Articles</a></li>
                     <?php endif; ?>
                 </ul>
@@ -48,7 +36,7 @@
                         <a href="/login"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
                         <a href="/register"><button type="button" class="btn btn-warning">Sign-up</button></a>
                     <?php else:?>
-                        <a href="/user/<?= $userQuery[0]->username ?>"><button type="button" class="btn btn-outline-light me-2"><?php echo $userQuery[0]->username ?></button></a>
+                        <a href="/user/<?= $user->username ?>"><button type="button" class="btn btn-outline-light me-2"><?php echo $user->username ?></button></a>
                         <a href="/src/validation/logoutHandler.php"><button type="button" class="btn btn-warning">Log out</button></a>
                         <?php session_abort(); endif;?>
                 </div>
