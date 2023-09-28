@@ -1,5 +1,7 @@
 <?php
 
+namespace Aternos\Model\models\classes;
+
 use Aternos\Model\GenericModel;
 
 class Article extends GenericModel
