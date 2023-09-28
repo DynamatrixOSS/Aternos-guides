@@ -5,6 +5,8 @@
     },
 
     "autoload": {
-        "psr-4": {"\\": "src/models/classes/"}
+        "psr-4": {"Aternos\\Model\\models\\classes\\": "src/models/classes/"}
     }
 }
+
+

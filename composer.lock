@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aternos/model",
-            "version": "v3.0.0",
+            "version": "v3.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aternosorg/php-model.git",
-                "reference": "202a10a22db56fe87c767b3551d70557507062a2"
+                "reference": "97adb4e17588e608378d17d7cea8e37bf7accdb9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aternosorg/php-model/zipball/202a10a22db56fe87c767b3551d70557507062a2",
-                "reference": "202a10a22db56fe87c767b3551d70557507062a2",
+                "url": "https://api.github.com/repos/aternosorg/php-model/zipball/97adb4e17588e608378d17d7cea8e37bf7accdb9",
+                "reference": "97adb4e17588e608378d17d7cea8e37bf7accdb9",
                 "shasum": ""
             },
             "require": {
@@ -26,9 +26,7 @@
             },
             "require-dev": {
                 "elasticsearch/elasticsearch": "^7.10",
-                "ext-cassandra": "*",
-                "ext-mysqli": "*",
-                "ext-redis": "*"
+                "phpunit/phpunit": "^10.2"
             },
             "suggest": {
                 "elasticsearch/elasticsearch": "To use the Elasticsearch Search driver",
@@ -61,7 +59,7 @@
                 "issues": "https://github.com/aternosorg/php-model/issues",
                 "source": "https://github.com/aternosorg/php-model"
             },
-            "time": "2023-03-15T16:16:40+00:00"
+            "time": "2023-06-30T15:46:01+00:00"
         },
         {
             "name": "erusev/parsedown",
