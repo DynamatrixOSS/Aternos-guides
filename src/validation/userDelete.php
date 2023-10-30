@@ -9,11 +9,20 @@ $dbCreds = databaseCredentials('../../.env');
 $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCreds['user'], $dbCreds['password'], "", $dbCreds['database']);
 \Aternos\Model\Driver\DriverRegistry::getInstance()->registerDriver($driver);
 
-include "../models/classes/Article.php";
+include "../models/classes/User.php";
 
-$articleID = $_POST['article_id'];
+$userID = $_POST['user_id'];
 
-$article = Article::select(["id"=>$articleID]);
-$article[0]->delete();
+$user = User::get($userID);
+var_dump($user);
+$user[0]->delete();
 
-header('Location: ../../reviewing');
+echo $user[0]->id;
+
+session_start();
+
+if ($user[0]->id === $_SESSION['authenticated']) {
+    header('Location: logoutHandler.php');
+}
+
+header('Location: /index');

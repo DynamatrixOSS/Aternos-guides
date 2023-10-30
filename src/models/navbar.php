@@ -45,10 +45,10 @@
                 <div class="text-end">
                     <?php
                     if (!isset($_SESSION['authenticated'])) :?>
-                        <a href="login"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-                        <a href="register"><button type="button" class="btn btn-warning">Sign-up</button></a>
+                        <a href="/login"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                        <a href="/register"><button type="button" class="btn btn-warning">Sign-up</button></a>
                     <?php else:?>
-                        <a href="profile"><button type="button" class="btn btn-outline-light me-2"><?php echo $userQuery[0]->username ?></button></a>
+                        <a href="/user/<?= $userQuery[0]->username ?>"><button type="button" class="btn btn-outline-light me-2"><?php echo $userQuery[0]->username ?></button></a>
                         <a href="/src/validation/logoutHandler.php"><button type="button" class="btn btn-warning">Log out</button></a>
                         <?php session_abort(); endif;?>
                 </div>
