@@ -2,15 +2,15 @@ label {
     padding-right: 50px;
 }
 textarea#title {
-    width: 400%;
+    width: 100%;
 }
 textarea#summary {
-    width: 400%;
+    width: 100%;
     height: 100px;
 }
 
 textarea#content {
-    width: 400%;
+    width: 100%;
     height: 500px;
 }
 
@@ -32,10 +32,8 @@ textarea {
     padding-right: 25%
 }
 .left{
-    float: left
+
+    overflow: hidden;
 }
 
-.right{
-    float: right; 
-    padding-right: 25%;
-}
+

@@ -38,31 +38,35 @@ session_abort();
 
     <body>
         <div class="container">
-        <h1>Article writer</h1>
-            <form action="src/validation/articleCreate.php" method="post" class="left">
-            <p id="size" class="visually-hidden">what?</p>
-                <label for="title" class="h3">Title</label> <br>
-                <?php session_start(); if (isset($_SESSION['message'])) { echo $_SESSION['message'] . '<br>'; unset($_SESSION['message']);} ?>
-                <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required></textarea> <br>
+            <div class="row">
+                <div class="col">
+                    <h1>Article writer</h1>
+                        <form action="src/validation/articleCreate.php" method="post" class="left">
+                            <p id="size" class="visually-hidden">what?</p>
+                            <label for="title" class="h3">Title</label> <br>
+                            <?php session_start(); if (isset($_SESSION['message'])) { echo $_SESSION['message'] . '<br>'; unset($_SESSION['message']);} ?>
+                            <textarea name="title" id="title" placeholder="Why Aternos is amazing..." required></textarea> <br>
 
-                <label for="summary" class="h3">Summary</label> <br>
-                <textarea name="summary" id="summary" placeholder="Because Aternos is free..." required></textarea> <br>
+                            <label for="summary" class="h3">Summary</label> <br>
+                            <textarea name="summary" id="summary" placeholder="Because Aternos is free..." required></textarea> <br>
 
-                <label for="content" class="h3">Content</label> <br>
-                <textarea name="content" id="content" placeholder="Its amazing because..." required></textarea> <br>
-                <br>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                            <label for="content" class="h3">Content</label> <br>
+                            <textarea name="content" id="content" placeholder="Its amazing because..." required></textarea> <br>
+                            <br>
+                            <button class="btn btn-primary" type="submit">Submit</button>
 
-            </form>
-            <div class="right">
-                <h2>Remember:</h2>
-                <ul>
-                    <li>Keep it civil</li>
-                    <li>Use proper grammar</li>
-                    <li>No other hosts</li>
-                    <li>Only facts</li>
-                    <li>Use Markdown; <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"> guide</a></li>
-                </ul>
+                        </form>
+                    </div>
+                    <div class=" col">
+                        <h2>Remember:</h2>
+                        <ul>
+                            <li>Keep it civil</li>
+                            <li>Use proper grammar</li>
+                            <li>No other hosts</li>
+                            <li>Only facts</li>
+                            <li>Use Markdown <a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax"> guide</a></li>
+                        </ul>
+                    </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
