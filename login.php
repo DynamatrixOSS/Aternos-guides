@@ -18,7 +18,7 @@
                 <div class="col"></div>
                 <div class="col">
                     <div class="row">
-                        <div class="col shadow shadow1">
+                        <div class="col shadow-lg shadow1">
                             <div class="row break">
                                 <div class="col top">
                                     <div class="col">
