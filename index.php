@@ -34,8 +34,10 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
             </div>
             <h2>Welcome to Aternos Guides</h2>
             <p>An article site ran by Aternos regulars and an Aternos moderator. Here you may find all kinds of articles about topics and issues that are not covered in Aternos' help center itself. Have an issue that you don't know the fix to? Try our articles below, in the articles page or join the Aternos discord for help.</p>
-            <a href="about"><button class="btn btn-primary">About Us</button></a>
-            <a href="articles"><button class="btn btn-outline-primary">Articles</button></a>
+           <div class="btn-group " role="group">
+                <a href="about" class="btn btn-info btn-lg">About Us</a>
+                <a href="articles" class="btn btn-danger btn-lg">Articles</a>
+            </div>
             <hr>
         </div>
         <div class="container">
