@@ -43,7 +43,7 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
         <div class="container">
             <div class="row break" >
                 <div class="col">
-                    <h2>Popular articles</h2>
+                    <h2 class="center-art">Popular articles</h2>
                     <ul class="hidden">
                         <?php
                         include "src/models/classes/Article.php";
@@ -61,8 +61,8 @@ $driver = new \Aternos\Model\Driver\Mysqli\Mysqli($dbCreds['host'], 3306, $dbCre
                 </div>
                 
                 <div class="col">
-                    <h2>Pinned articles</h2>
-                    <ul class="hidden">
+                    <h2 class="center-art">Pinned articles</h2>
+                    <ul class="hidden ">
                         <?php
                         $articleQueryResult = Article::select(["approved"=>true], limit: 5);
                         if (count($articleQueryResult) === 0) {
